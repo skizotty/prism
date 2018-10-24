@@ -1,0 +1,17 @@
+{
+	"login-form":
+		{
+			"1":"Username", 
+	    	"2":"Password",
+	    	"3":"Submit"
+		}
+}
+
+title
+
+{
+	"title":
+		{
+			"1":"Welcome to Prism."
+		}
+}

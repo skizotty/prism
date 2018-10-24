@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Prism</title>
+	<script type="text/javascript" src="./resources/js/mainscripts.js"></script>
+	<script type="text/javascript" src="./resources/js/jquery.js"></script>
+	<style type="text/css" src="./resources/css/normalize.css"></style>
+</head>
+<body>
+	Welcome to Prism. The Way of the future.
+	<div name='title' class='element'></div>
+	<div name="login-form" class="element"></div>
+</body>
+<script type="text/javascript">
+	var src = document.location.origin;
+	var elements = document.querySelectorAll('[class=element]');
+	var requests = new FormData();
+	for (var i = elements.length - 1; i >= 0; i--) {
+		console.log(i)
+		requests.append(elements[i].getAttribute('class')+i,elements[i].getAttribute('name'));
+	}
+	console.log(requests);
+	var settings = {
+	  "async": true,
+	  "crossDomain": true,
+	  "url": src+"/resources/loadpage.php",
+	  "method": "POST",
+	  "headers": {
+	    "cache-control": "no-cache",
+	    "Postman-Token": "3985da5f-538a-418a-8c7f-4c552d0681ce"
+	  },
+	  "processData": false,
+	  "contentType": false,
+	  "mimeType": "multipart/form-data",
+	  "data": requests
+	}
+
+	$.ajax(settings).done(function (response) {
+		response = JSON.parse(response)
+		console.log(response);
+	});
+	console.log('compiled.');
+</script>
+</html>
